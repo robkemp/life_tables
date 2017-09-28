@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1506552281685.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8FA5A966",
+    "lastKnownWriteTime" : 4412816750869311299,
+    "last_content_update" : 1506552281685,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "37D2212D",
+        "caption" : "nDx",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=nDx&cache_key=37D2212D",
+        "displayedObservations" : 11,
+        "environment" : "",
+        "object" : "nDx",
+        "preview" : 0,
+        "totalObservations" : 11,
+        "variables" : 1
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

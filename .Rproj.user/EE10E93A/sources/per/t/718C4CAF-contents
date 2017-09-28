@@ -1,0 +1,117 @@
+library(leaflet)
+library(leaflet.extras)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(tigris)
+library(htmlwidgets)
+library(sf)
+library(RODBC)
+
+### Script SetUP
+
+fc_pop=odbcConnect("FC_POP")
+options(tigris_class = "sf")
+
+
+### Data Pulls
+pull=sqlFetch(fc_pop, "dbo.OFM_POP_APR1_DATA", stringsAsFactors=FALSE)%>%
+  mutate(PLACEFP=stringr::str_sub(paste0("00000", CITYFIPS), -5,-1))
+
+pl=places(state=53)
+
+# pl=st_geometry(pl%>%
+#                  filter(LSAD%in%c(25,43)))
+
+
+pl=pl%>%
+                 filter(LSAD%in%c(25,43))
+
+p=as(pl, "Spatial")
+
+### Join Tabular and Spatial data
+# 
+# ct=pull%>% left_join( pl, by="PLACEFP")
+
+# ctp=p%>% left_join( pull, by="PLACEFP")
+
+year=2016
+
+geo_year_join=function(year){
+  
+d=pull%>%
+  filter(YEAR==year)
+
+ct=geo_join(p, d, by=c("PLACEFP"="PLACEFP"))
+
+
+l=list(ct,d)
+return(l)
+}
+
+for (i in 2010:2016){
+
+assign (paste0("l",i), geo_year_join(i))
+  tmp=geo_year_join(i)[[1]]
+  assign(paste0("popup",i),paste0(tmp$CITYNAME, " ", tmp$YEAR,  " Population: ", scales::comma(tmp$POPULATION)))
+
+}
+### Map
+pal <- colorNumeric("Blues", NULL, n = 6)
+
+
+
+m=leaflet() %>%
+  # addTiles()%>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = l2010[[1]], 
+              fillColor = "#7fc97f", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2010,
+              group="2010")%>%
+  addPolygons(data = l2011[[1]], 
+              fillColor = "#beaed4", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2011,
+              group="2011")%>%
+  addPolygons(data = l2012[[1]], 
+              fillColor = "#fdc086", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2012,
+              group="2012")%>%
+  addPolygons(data = l2013[[1]], 
+              fillColor = "#ffff99", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2013,
+              group="2013")%>%
+  addPolygons(data = l2014[[1]], 
+              fillColor = "#386cb0", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2014,
+              group="2014")%>%
+  addPolygons(data = l2015[[1]], 
+              fillColor = "#f0027f", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2015,
+              group="2015")%>%
+  addPolygons(data = l2016[[1]], 
+              fillColor = "#bf5b17", 
+              fillOpacity = 0.7, 
+              weight = 0.2,
+              popup=popup2016,
+              group="2016")%>%
+  addLayersControl(
+    overlayGroups = c("2010", "2011", "2012", "2013", "2014", "2015", "2016"),
+    options = layersControlOptions(collapsed = FALSE)
+  )%>%
+  hideGroup(c("2010", "2011", "2012", "2013", "2014", "2015"))%>%
+  addSearchOSM()%>%
+  addControl("<h2>OFM April 1 Population Estimates</h2>", "bottomright")
+
+saveWidget(m, file="m.html")

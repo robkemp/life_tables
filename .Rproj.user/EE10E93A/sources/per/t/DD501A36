@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1506544980908.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DD501A36",
+    "lastKnownWriteTime" : 3419473787924512768,
+    "last_content_update" : 1506544980908,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "6C889963",
+        "caption" : "females",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=females&cache_key=6C889963",
+        "displayedObservations" : 13,
+        "environment" : "",
+        "object" : "females",
+        "preview" : 0,
+        "totalObservations" : 13,
+        "variables" : 5
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

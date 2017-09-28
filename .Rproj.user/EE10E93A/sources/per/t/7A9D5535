@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1506546201095.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7A9D5535",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1506546201095,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "6FCBB92",
+        "caption" : "deaths",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=deaths&cache_key=6FCBB92",
+        "displayedObservations" : "16848",
+        "environment" : "",
+        "object" : "deaths",
+        "preview" : "0",
+        "totalObservations" : "16848",
+        "variables" : "4"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

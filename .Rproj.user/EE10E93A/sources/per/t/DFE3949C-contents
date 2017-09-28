@@ -1,0 +1,11 @@
+#' Opens connections to FC_POP
+#' FIRST NEED TO SET UP ODBC (32-bit) Connection
+#' Check out instructions here: https://andersspur.wordpress.com/2013/11/26/connect-r-to-sql-server-2012-and-14/ PDF
+#' of website is here: \\filedepot.eclient.wa.lcl\OFMFC\GIS\Tools\Rob\Tweaks_R\Connect R to SQL Server 2012 and “14” _ Anders Spur Hansen.pdf
+#'
+#'
+
+
+
+library(RODBC)
+fc_pop=odbcConnect("FC_POP")

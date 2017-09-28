@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1506550156304.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8D3D12CF",
+    "lastKnownWriteTime" : 8389754657483784194,
+    "last_content_update" : 1506550156304,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "DD56777C",
+        "caption" : "population",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=population&cache_key=DD56777C",
+        "displayedObservations" : 3080,
+        "environment" : "",
+        "object" : "population",
+        "preview" : 0,
+        "totalObservations" : 3080,
+        "variables" : 4
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
